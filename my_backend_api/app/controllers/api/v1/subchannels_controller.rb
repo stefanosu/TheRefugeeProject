@@ -1,10 +1,9 @@
-class Api::V2::SubchannelsController < ApplicationController
+class Api::V1::SubchannelsController < ApplicationController
   before_action :set_subchannel, only: [:show, :update, :destroy]
 
   # GET /subchannels
   def index
     @subchannels = Subchannel.all
-
     render json: @subchannels
   end
 

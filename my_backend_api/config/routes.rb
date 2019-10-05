@@ -7,23 +7,22 @@ Rails.application.routes.draw do
   end
   
   namespace :api do 
-    namespace :v2 do 
+    namespace :v1 do 
       resources :subchannels
     end
   end
   
   namespace :api do 
-    namespace :v3 do 
+    namespace :v1 do 
       resources :posts
     end
   end
   
   namespace :api do 
-    namespace :v4 do 
+    namespace :v1 do 
       resources :comments
     end
   end
-      
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
