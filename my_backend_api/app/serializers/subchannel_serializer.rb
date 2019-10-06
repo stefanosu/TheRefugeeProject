@@ -1,3 +1,4 @@
 class SubchannelSerializer < ActiveModel::Serializer
-  attributes :id, :channel_name, :user_id, :post_id
+  attributes :id, :name, :user_id, :posts
+  
 end

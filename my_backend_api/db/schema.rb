@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_191651) do
   create_table "comments", force: :cascade do |t|
     t.string "text"
     t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -23,16 +24,14 @@ ActiveRecord::Schema.define(version: 2019_09_30_191651) do
     t.string "text"
     t.string "title"
     t.string "url"
-    t.integer "comment_id"
-    t.integer "user_id"
+    t.integer "subchannel_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "subchannels", force: :cascade do |t|
-    t.string "channel_name"
+    t.string "name"
     t.integer "user_id"
-    t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,9 +39,6 @@ ActiveRecord::Schema.define(version: 2019_09_30_191651) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.integer "subchannel_id"
-    t.integer "post_id"
-    t.integer "comment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

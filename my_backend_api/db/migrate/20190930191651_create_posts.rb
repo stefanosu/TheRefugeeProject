@@ -4,9 +4,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :text
       t.string :title
       t.string :url
-      t.integer :comment_id
-      t.integer :user_id
-
+      t.integer :subchannel_id
       t.timestamps
     end
   end

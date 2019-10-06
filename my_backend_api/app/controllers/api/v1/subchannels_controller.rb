@@ -4,7 +4,7 @@ class Api::V1::SubchannelsController < ApplicationController
   # GET /subchannels
   def index
     @subchannels = Subchannel.all
-    render json: @subchannels
+    render json: @subchannels 
   end
 
   # GET /subchannels/1
@@ -45,6 +45,6 @@ class Api::V1::SubchannelsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def subchannel_params
-      params.require(:subchannel).permit(:channel_name, :user_id, :post_id)
+      params.require(:subchannel).permit(:name, :user_id)
     end
 end

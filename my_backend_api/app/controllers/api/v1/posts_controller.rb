@@ -4,7 +4,6 @@ class Api::V1::PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
-
     render json: @posts
   end
 
@@ -46,6 +45,6 @@ class Api::V1::PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:text, :title, :user_id, :url, :comment_id)
+      params.require(:post).permit(:text, :title, :url, :subchannel_id)
     end
 end
