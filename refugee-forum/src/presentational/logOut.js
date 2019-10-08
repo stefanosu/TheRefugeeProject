@@ -1,10 +1,8 @@
 import React from 'react';
 
 
-class logOut extends React.Component {
+class LogOut extends React.Component {
     
-    state = {  }
-
     render() { 
         return (  
             <div>
@@ -13,4 +11,4 @@ class logOut extends React.Component {
     }
 }
 
-export default logOut;
+export default LogOut;

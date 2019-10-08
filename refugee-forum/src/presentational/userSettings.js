@@ -1,9 +1,8 @@
 import React from 'react'; 
 
 
-class userSettings extends React.Component {
+class UserSettings extends React.Component {
     
-    state = {  }
 
     render() { 
         return ( <div>
@@ -11,4 +10,4 @@ class userSettings extends React.Component {
     }
 }
 
-export default userSettings;
+export default UserSettings;

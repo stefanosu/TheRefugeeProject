@@ -32,10 +32,10 @@ Post.create(title: 'Tradgey', text:'Mahmoud Darwish', url:'poetry.com', subchann
 Post.create(title: '2020Race', text:'', url:'nytimes.com', subchannel_id:4)
 
 
-Comment.create(text:'JS is weird', user_id:1, post_id:2)
-Comment.create(text:'Knicks...', user_id:5, post_id:3)
-Comment.create(text:'Bernie Pandas', user_id:3, post_id:1)
-Comment.create(text:'Water', user_id:1, post_id: 1)
-Comment.create(text:'food is good', user_id:3, post_id: 4)
+Comment.create(text:'JS is weird',post_id:2, user_id:1)
+Comment.create(text:'Knicks...',post_id:3, user_id:3)
+Comment.create(text:'Bernie Pandas',post_id:1 , user_id:2)
+Comment.create(text:'Water',post_id: 1 , user_id:2)
+Comment.create(text:'food is good',post_id: 4 , user_id:4)
 
 

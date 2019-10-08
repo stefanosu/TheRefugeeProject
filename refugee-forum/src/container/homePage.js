@@ -1,16 +1,18 @@
 import React from 'react'; 
+import InfiniteScroll from '../presentational/InfiniteScroll'
+import SideBar from '../presentational/SideBar'
 
-class homePage extends React.Component {
-    
-    state = {  }
+class HomePage extends React.Component {
     
     render() { 
         return ( 
-            <div>HomePage
-                <infiniteScroll/>
-                <sideBar/>
-            </div> );
+            <div>
+            HomePage
+            <InfiniteScroll/>
+            <SideBar/>
+            </div> 
+            );
     }
 }
 
-export default homePage;
+export default HomePage;
