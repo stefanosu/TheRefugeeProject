@@ -1,7 +1,7 @@
 import React from 'react'; 
-import comments from '.container/comments'
+import Comments from '.container/Comments'
 
-class form extends React.Component {
+class Form extends React.Component {
 
     state = { 
         name: ''
@@ -33,4 +33,4 @@ class form extends React.Component {
     }
 }
 
-export default form
+export default Form

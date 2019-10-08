@@ -1,7 +1,7 @@
 import React from 'react';
 import Post  from './post'
 
-class subChannel extends React.Component {
+class SubChannel extends React.Component {
     state = {  }
 
     render() { 
@@ -11,4 +11,4 @@ class subChannel extends React.Component {
     }
 }
 
-export default subChannel;
+export default SubChannel;

@@ -1,8 +1,8 @@
 import React from 'react'; 
 
 
-class comments extends React.Component {
-    state = {  }
+class Comments extends React.Component {
+
     
     render() { 
         return ( <div>
@@ -11,4 +11,4 @@ class comments extends React.Component {
     }
 }
 
-export default comments;
+export default Comments;
