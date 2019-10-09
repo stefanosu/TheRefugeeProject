@@ -2,12 +2,14 @@ import React from 'react';
 import NavBar from './container/NavBar'
 
 
-function App() {
-  return (
-    <div>App
-    <NavBar  />
-    </div>
-  )
+class App extends React.Component {
+
+
+  render() { 
+    return ( <div>
+      <NavBar/>
+      </div> );
+  }
 }
 
 export default App;
