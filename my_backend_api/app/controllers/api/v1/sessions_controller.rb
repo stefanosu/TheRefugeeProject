@@ -1,17 +1,16 @@
-class API::V1::SessionsController < ApplicationController
+class Api::V1::SessionsController < ApplicationController
 
-    def create
-        
+def create
+    @user = User.find_by(username: params[:session][:username]) 
+
+    if @user && @user.authenticate(params[:session][:password])
+        session[:user_id] = @user.id 
+        render json: @user
+    else  
+        render json: {
+            error: 'invalid credentials' 
+        }
     end
-
-
-    def method_name
-        
-    end
-
-
-    def method_name
-        
-    end
+end
 
 end

@@ -39,12 +39,12 @@ class Api::V1::PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def post_params
-      params.require(:post).permit(:text, :title, :url, :subchannel_id)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def post_params
+    params.require(:post).permit(:text, :title, :url, :subchannel_id)
+  end
 end
