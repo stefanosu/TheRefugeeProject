@@ -36,7 +36,9 @@ module MyBackendApi
     config.api_only = true
     config.middleware.use ActionDispatch::Cookies
     # config.middleware.use ActionDispatch::Sessions::CookieStore, key:
-    # '_namespace_key'
+    # '_cookie_name'
+    Rails.application.config.session_store :cookie_store, key: '_cookie_name'
+
 
   end
 end
