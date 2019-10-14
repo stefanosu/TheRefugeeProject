@@ -12,7 +12,8 @@ export const setCurrentUser = user => {
 export const login = credentials => {
     console.log('credentials are here', credentials);
     return dispatch => {
-        return fetch("http://localhost:3001/api/v1/login", {
+        // debugger
+        return fetch("http://localhost:3000/api/v1/login", {
         credentials: 'include',
         method: 'POST', 
         headers: {
@@ -36,7 +37,7 @@ export const login = credentials => {
 export const getCurrentUser = () => {
     console.log('DISPATCHING GET CURRENT USER');
     return dispatch => {
-        return fetch("http://localhost:3001/api/v1/get_current_user", {
+        return fetch("http://localhost:3000/api/v1/get_current_user", {
         credentials: 'include',
         method: 'GET', 
         headers: {
