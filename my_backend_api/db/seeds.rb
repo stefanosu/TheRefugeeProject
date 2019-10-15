@@ -3,11 +3,12 @@
 
 
 
-User.create(username:'Stefanos', password_digest:'abc123')
-User.create(username:'Mike', password_digest:'123abc')
-User.create(username:'Mus', password_digest:'123abc')
-User.create(username:'Amman', password_digest:'123abc')
-User.create(username:'Bear', password_digest:'123abc')
+User.create(username:'Stefanos', password:'abc123')
+User.create(username:'Mike', password:'123abc')
+User.create(username:'Mus', password:'knicks')
+User.create(username:'Amman', password:'brazil')
+User.create(username:'Bear', password:'mosby')
+User.create(username:'Brian', password:'marvel')
 
 
 
