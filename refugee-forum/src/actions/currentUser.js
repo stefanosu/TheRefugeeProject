@@ -14,10 +14,10 @@ export const login = credentials => {
     return dispatch => {
         // debugger
         return fetch("http://localhost:3000/api/v1/login", {
-        credentials: 'include',
+        credentials: "include",
         method: 'POST', 
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json'  
             }, 
             body: JSON.stringify(credentials)
         })
@@ -37,8 +37,9 @@ export const login = credentials => {
 export const getCurrentUser = () => {
     console.log('DISPATCHING GET CURRENT USER');
     return dispatch => {
+        // debugger 
         return fetch("http://localhost:3000/api/v1/get_current_user", {
-        credentials: 'include',
+        credentials: "include",
         method: 'GET', 
         headers: {
             'Content-Type': 'application/json'
