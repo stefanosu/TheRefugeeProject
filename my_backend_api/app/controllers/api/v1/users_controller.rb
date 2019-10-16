@@ -14,12 +14,11 @@ class Api::V1::UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      render json: @user, status: :created, location: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
+    @user = User.create(user_params)
+    if @user.valid? 
+      render json: { token: encode_token(user_payload(@user)) }
+    else 
+      render json: {errors: @user.errors.full_messages}
     end
   end
 
@@ -45,6 +44,6 @@ class Api::V1::UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :password)
+      params.permit(:username, :password)
     end
 end
