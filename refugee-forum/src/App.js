@@ -8,7 +8,9 @@ class App extends React.Component {
 
   componentDidMount() {
     // console.log(this.props.getCurrentUser);
-    this.props.getCurrentUser()
+    if(localStorage.token){
+      this.props.getCurrentUser()
+    }
   }
 
   render() { 
