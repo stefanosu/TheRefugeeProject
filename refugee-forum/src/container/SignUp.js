@@ -1,11 +1,11 @@
 
-import React from 'react';
+import React from 'react'
 // import {connect} from 'react-redux';
 // import {userPostFetch} from '../redux/actions';
 
 
 class SignUp extends React.Component {
-
+    
     render() { 
         return ( <div></div> );
     }
