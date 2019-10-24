@@ -14,7 +14,7 @@ export const login = credentials => {
     return dispatch => {
         // debugger
         return fetch("http://localhost:3000/api/v1/login", {
-        credentials: "include",
+        // credentials: "include",
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json'  
@@ -41,7 +41,7 @@ export const getCurrentUser = () => {
         // debugger 
         const token = localStorage.token
         return fetch("http://localhost:3000/api/v1/get_current_user", {
-        credentials: "include",
+        // credentials: "include",
         method: 'GET', 
         headers: {
             "Authorization": token

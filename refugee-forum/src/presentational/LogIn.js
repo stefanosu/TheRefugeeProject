@@ -4,7 +4,6 @@ import {updateLogInForm} from '../actions/loginForm.js'
 import {login} from '../actions/currentUser.js'
 
 
-
 const LogIn = ({loginFormData, updateLogInForm, login}) => {
 
     const handleInputChange = event => {
