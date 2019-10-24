@@ -11,17 +11,17 @@ class ApplicationController < ActionController::API
     end
     # binding.pry
 
-    # payload = { user_id: user.id }
-
-    # token = JWT.encode payload, "secret", "HS256" 
-
-    # render json: { token: token }
-
     def this_current_user
-        user_id = decoded_token['user_id']
+        # byebug
+        user_id = encode_token['user_id']
         User.find_by(id:session[:user_id])
     end
 
+
+    # def decode_token
+    #     # byebug
+    #     user.id.find_by(id:session[:user_id])
+    # end 
 
     def logged_in? 
         !!this_current_user
