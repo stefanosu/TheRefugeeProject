@@ -7,7 +7,6 @@ class Form extends React.Component {
         name: ''
     }
 
-    
     handleChange = (event) => {
         const {name, value } = event.target 
             this.setState({
@@ -26,7 +25,7 @@ class Form extends React.Component {
         return ( 
                 <div>
                 <form onSubmit={this.handleSubmit} className='Comments'> 
-                    <form  onChange={this.handleChange} name= 'name' type='text' value=''> 
+                    <form onChange={this.handleChange} name= 'name' type='text' value=''> 
                     </form>
                 </form>
                 </div> );
