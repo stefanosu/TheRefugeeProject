@@ -8,7 +8,3 @@ application up and running.
 * System dependencies
 
 * Configuration
-
-* Database creation
-
-* Database initialization
