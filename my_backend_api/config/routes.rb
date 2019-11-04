@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  post "/api/v1/login", to: "api/v1/sessions#login"
-  delete "/api/v1/logout", to: "api/v1/sessions#destroy"
-  get "/api/v1/get_current_user", to: "api/v1/sessions#get_current_user"
-  post "api/v1/signup", to: "api/v1/users#create"
-  get "api/v1/myprofile", to: "api/v1/sessions#myprofile"
-
+  post '/login', to: 'api/v1/sessions#login'
+  get '/profile', to: 'api/v1/users#profile'
+  post '/signup', to: 'api/v1/users#create'
+  get '/subchannels', to: 'api/v1/subchannels#show'
 
   namespace :api do 
     namespace :v1 do 
