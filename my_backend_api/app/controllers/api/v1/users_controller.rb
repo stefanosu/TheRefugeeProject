@@ -8,8 +8,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   # GET /users/1
-  def show
-    render json: @user
+  def profile
+    render json: this_current_user
   end
 
   # POST /users

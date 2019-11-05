@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  post '/login', to: 'api/v1/sessions#login'
-  get '/profile', to: 'api/v1/users#profile'
+  post 'api/v1/login', to: 'api/v1/sessions#login'
+  get 'api/v1/profile', to: 'api/v1/users#profile'
   post '/signup', to: 'api/v1/users#create'
   get '/subchannels', to: 'api/v1/subchannels#show'
 

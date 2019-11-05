@@ -2,28 +2,38 @@ class ApplicationController < ActionController::API
     include ::ActionController::Cookies
 
     def encode_token(payload)
-        # binding.pry  
-        JWT.encode payload, "secret", "HS256" 
+        JWT.encode payload, "secret", 'HS256' 
     end
 
     def user_payload(user)
         { user_id: user.id}
     end
-    # binding.pry
+
+    def secret
+        Rails.application.credentials.my_app_secret
+    end
+
+    def token
+        request.headers["Authorization"]
+    end
+
+    def decoded_token
+        JWT.decode token, secret, true, { algorithm: 'HS256' }
+    end
+
+    # def current_user
+    #     User.find(decoded_token[0]["user_id"])
+    # end
+    
 
     def this_current_user
         # byebug
-        user_id = encode_token['user_id']
-        User.find_by(id:session[:user_id])
+        # user_id = encode_token['user_id']
+        User.find(decoded_token[0]['user_id'])
     end
 
 
-    # def decode_token
-    #     # byebug
-    #     user.id.find_by(id:session[:user_id])
+    # def logged_in? 
+    #     !!this_current_user
     # end 
-
-    def logged_in? 
-        !!this_current_user
-    end 
 end
