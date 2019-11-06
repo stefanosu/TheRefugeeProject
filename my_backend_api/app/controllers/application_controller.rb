@@ -19,7 +19,12 @@ class ApplicationController < ActionController::API
     end
 
     def decoded_token
-        JWT.decode token, secret, true, { algorithm: 'HS256' }
+      debugger
+      # Stefanos: there is no secret
+        # method secret does not return secret, but nil
+          # environmental issue (IE working on my comp instead of yours)
+            # or programatic error (IE not establishing secret properly)?
+      JWT.decode token, secret, true, { algorithm: 'HS256' }
     end
 
     def this_current_user
