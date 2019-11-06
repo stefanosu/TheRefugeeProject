@@ -9,7 +9,7 @@ class Api::V1::UsersController < ApplicationController
 
   # GET /users/1
   def profile
-    render json: this_current_user
+    render json: user 
   end
 
   # POST /users

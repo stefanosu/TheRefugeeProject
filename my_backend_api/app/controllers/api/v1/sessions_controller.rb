@@ -19,15 +19,15 @@ def login
         
         if is_authenticated
         render json: { token: encode_token(user_payload(user)) }
-        
+
         else
         render json: { error: "Wrong username and/or password. Sorry!" }
         end
 end
-end
+
 
 def get_current_user
-    if logged_in?             
+    if logged_in?
         render json: this_current_user
         # byebug
     else 
@@ -36,4 +36,4 @@ def get_current_user
         }
     end
 end
-
+end

@@ -17,23 +17,23 @@ class ApplicationController < ActionController::API
         request.headers["Authorization"]
     end
 
-    def decoded_token
-        JWT.decode token, secret, true, { algorithm: 'HS256' }
-    end
+    # def decoded_token
+    #     JWT.decode token, secret, true, { algorithm: 'HS256' }
+    # end
 
     # def current_user
     #     User.find(decoded_token[0]["user_id"])
     # end
     
 
-    def this_current_user
-        # byebug
-        # user_id = encode_token['user_id']
-        User.find(decoded_token[0]['user_id'])
-    end
+    # def this_current_user
+    #     # byebug
+    #     # user_id = encode_token['user_id']
+    #     User.find(decoded_token[0]['user_id'])
+    # end
 
 
-    # def logged_in? 
-    #     !!this_current_user
-    # end 
+    def logged_in? 
+        !!get_current_user
+    end 
 end
