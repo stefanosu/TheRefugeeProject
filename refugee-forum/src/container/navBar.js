@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+import SearchBar from './searchBar';
 import SignUp from './SignUp';
 import LogIn from './presentational/LogIn';
 import UserSettings from './presentational/UserSettings';
