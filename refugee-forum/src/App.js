@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './container/NavBar'
+import NavBar from './container/navBar'
 import { connect } from 'react-redux'
 import { getCurrentUser} from './actions/currentUser.js'
 // import LogIn from './presentational/LogIn.js'
@@ -13,7 +13,7 @@ class App extends React.Component {
     }
   }
 
-  render() { 
+  render() {
     return ( <div>
       <NavBar/>
       </div> );

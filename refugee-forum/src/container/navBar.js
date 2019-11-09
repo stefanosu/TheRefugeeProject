@@ -1,17 +1,17 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+import SearchBar from './searchBar';
 import SignUp from './SignUp';
 import LogIn from '../presentational/LogIn';
-import UserSettings from '../presentational/UserSettings';
-import LogOut from '../presentational/LogOut';
+import UserSettings from '../presentational/userSettings';
+import LogOut from '../presentational/logOut';
 
 class NavBar extends React.Component {
-    
-    render() { 
+
+    render() {
         return (
             <div>
                 Navbar
-                make clickable SignUp icon for this on navBar// <SignUp/> 
+                make clickable SignUp icon for this on navBar// <SignUp/>
                 make clickable LogIn icon for this on navBar//<LogIn />
                 make SearchBar form for this on the Searchbar component that will be displayed on Navbar<SearchBar/>
                 make clickable UserSettings icon for this on navBar// <UserSettings/>
