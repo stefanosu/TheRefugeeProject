@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_191651) do
     t.integer "subchannel_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
+  end 
 
   create_table "subchannels", force: :cascade do |t|
     t.string "name"
