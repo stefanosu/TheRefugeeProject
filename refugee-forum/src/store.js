@@ -1,8 +1,8 @@
 import {createStore, applyMiddleware, compose, combineReducers} from 'redux'
-import usersReducer from './reducers/users.js'
+import usersReducer from './reducers/Users.js'
 import thunk from 'redux-thunk'
-import currentUser from './reducers/currentUser.js';
-import loginForm from './reducers/loginForm.js'
+import currentUser from './reducers/CurrentUser.js';
+import loginForm from './reducers/LoginForm.js'
 
 
 

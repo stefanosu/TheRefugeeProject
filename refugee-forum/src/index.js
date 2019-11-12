@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 // import { Router, Route} from 'react-router-dom'
-import store from './store.js'
+import store from './Store.js'
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import NavBar from './container/navBar'
+import NavBar from './container/NavBar'
 import { connect } from 'react-redux'
-import { getCurrentUser} from './actions/currentUser.js'
+import { getCurrentUser} from './actions/CurrentUser.js'
 // import LogIn from './presentational/LogIn.js'
 
 class App extends React.Component {

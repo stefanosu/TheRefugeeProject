@@ -2,8 +2,8 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import SignUp from './SignUp';
 import LogIn from '../presentational/LogIn';
-import UserSettings from '../presentational/userSettings';
-import LogOut from '../presentational/logOut';
+import UserSettings from '../presentational/UserSettings';
+import LogOut from '../presentational/LogOut';
 
 class NavBar extends React.Component {
 
