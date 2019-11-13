@@ -13,15 +13,15 @@ class Api::V1::SubchannelsController < ApplicationController
   end
 
   # POST /subchannels
-  def create
-    @subchannel = Subchannel.new(subchannel_params)
-
-    if @subchannel.save
-      render json: @subchannel, status: :created, location: @subchannel
-    else
-      render json: @subchannel.errors, status: :unprocessable_entity
+  def create 
+    @subchannel = Subchannel.create(subchannel_params)
+    if @subchannel.valid? 
+      render json: @subchannel
+    else 
+      render json: {errors: @subchannel.errors.full_messages}
     end
   end
+  
 
   # PATCH/PUT /subchannels/1
   def update
