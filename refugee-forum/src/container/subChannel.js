@@ -1,33 +1,49 @@
 import React from 'react';
 import Post  from './Post'
 import { connect } from 'react-redux'
-import  UserChannel from '../actions/UserChannel.js'
+import {updateUserChannel} from '../actions/UserChannel.js'
+import {subchannel} from '../actions/CurrentSubchannel.js'
 
-class SubChannel extends React.Component {
 
-    handleClick = (e) => {
+const SubChannel = ({updateUserChannel, channelData, subchannel }) => { 
+
+    const handleClick = (e) => {
+        /// In State toggle: boolean if clicked True then state changes and creates subchannel if False then return default state.   
         console.log('clicked', e)            
     }
 
-    handleSubmit = (e) => {
-        //make post request to backend to persist subchannel info into the database and show on the UI  
+    const handleSubmit = (e) => {
+        //make post request to backend to persist subchannel info into the database and show on the UI
+        //This should be done in the UserChannel in reducers 
     }
 
-    render() { 
-        return ( <div>
-            <button onClick={(e) => this.handleClick}> </button>
-                <form aria-label onSubmit={(e) => this.handleSubmit} type='text' name='name'> </form>
-                
-            </div> );
+    const handleChannelChange = e => {
+        const {name, value} = e.target
+        const updateChannelData = {
+            ...channelData, 
+            [name]: value
         }
+        updateUserChannel(updateChannelData)
+    } 
+
+    return ( 
+        <React.Fragment> 
+            <button onClick={handleClick}> </button>
+                <form onSubmit={handleSubmit} >
+                    <input onChange={handleChannelChange} type='text' name='name' value={channelData.name}  />
+                    <input type='submit' value= 'channelName'/>
+                </form>
+        </React.Fragment>
+        )
     }
 
-    mapStateToProps = state => {
+
+    const mapStateToProps = state => {
         return { 
-
+            channelData: state.channelForm 
         }
     }
 
 
 
-export default connect(mapStateToProps, UserChannel) (SubChannel);
+export default connect(mapStateToProps, {updateUserChannel, subchannel}) (SubChannel);

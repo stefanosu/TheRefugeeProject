@@ -28,6 +28,7 @@ return (
         </form>
         );
     }
+    
     const mapStateToProps = state => {
         return {
             loginFormData: state.loginForm

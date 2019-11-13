@@ -23,7 +23,8 @@ class Form extends React.Component {
 
     render() { 
         return ( 
-                <div>
+                <div> 
+                <Comments /> 
                 <form onSubmit={this.handleSubmit} className='Comments'> 
                     <form onChange={this.handleChange} name= 'name' type='text' value=''> 
                     </form>

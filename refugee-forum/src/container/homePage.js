@@ -1,6 +1,7 @@
 import React from 'react'; 
 import InfiniteScroll from '../presentational/InfiniteScroll'
 import SideBar from '../presentational/SideBar'
+import NavBar from './NavBar.js';
 
 class HomePage extends React.Component {
     
@@ -10,6 +11,7 @@ class HomePage extends React.Component {
             HomePage
             <InfiniteScroll/>
             <SideBar/>
+            <NavBar/>
             </div> 
             );
     }
