@@ -2,17 +2,24 @@ import React from 'react';
 import Post  from './Post'
 import { connect } from 'react-redux'
 import {updateUserChannel} from '../actions/UserChannel.js'
-import {subchannel} from '../actions/CurrentSubchannel.js'
+import {makeChannel} from '../actions/CurrentSubchannel.js'
 
 
-const SubChannel = ({updateUserChannel, channelData, subchannel }) => { 
+const SubChannel = ({updateUserChannel, channelData, makeChannel }) => { 
 
     const handleClick = (e) => {
-        /// In State toggle: boolean if clicked True then state changes and creates subchannel if False then return default state.   
+        //In State toggle: boolean if clicked True then 
+        //state changes and creates subchannel if False 
+        //then return default state.
+        //This boolean needs to be dispatched to the store
+        // onClick create channel and form pops up to input
+        //name of channel. 
         console.log('clicked', e)            
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit =  e => {
+        e.preventDefault() 
+        makeChannel(updateChannelData)
         //make post request to backend to persist subchannel info into the database and show on the UI
         //This should be done in the UserChannel in reducers 
     }
@@ -40,10 +47,11 @@ const SubChannel = ({updateUserChannel, channelData, subchannel }) => {
 
     const mapStateToProps = state => {
         return { 
-            channelData: state.channelForm 
+            channelData: state.channelForm,
+
         }
     }
 
 
 
-export default connect(mapStateToProps, {updateUserChannel, subchannel}) (SubChannel);
+export default connect(mapStateToProps, {updateUserChannel, makeChannel}) (SubChannel);
