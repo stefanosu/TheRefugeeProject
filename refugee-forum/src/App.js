@@ -1,23 +1,26 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { getCurrentUser} from './actions/CurrentUser.js'
+import { Route } from 'react-router-dom'
+// import { connect } from 'react-redux'
+// import { getCurrentUser} from './actions/CurrentUser.js'
 import HomePage from './container/HomePage.js';
-// import LogIn from './presentational/LogIn.js'
 
 class App extends React.Component {
 
-  componentDidMount() {
-    // console.log(this.props.getCurrentUser);
-    if(localStorage.token){
-      this.props.getCurrentUser()
-    }
-  }
+  // componentDidMount() {
+  //   // console.log(this.props.getCurrentUser);
+  //   if(localStorage.token){
+  //     this.props.getCurrentUser()
+  //   }
+  // }
 
   render() {
-    return ( <div>
-      <HomePage/>
-      </div> );
+    return ( 
+      <div>
+      <Route path= '/' component={HomePage}/>
+      </div>
+      );
   }
 }
 
-export default connect(null, { getCurrentUser}) (App);
+export default App
+// export default connect(null, { getCurrentUser}) (App);

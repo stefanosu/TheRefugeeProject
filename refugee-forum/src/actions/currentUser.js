@@ -7,6 +7,12 @@ export const setCurrentUser = user => {
     }
 } 
 
+export const clearCurrentUser = () => {
+    return {
+        type: 'CLEAR_CURRENT_USER'
+    }
+}
+
 
 ///async action creators 
 export const login = credentials => {
@@ -14,7 +20,7 @@ export const login = credentials => {
     return dispatch => {
         // debugger
         return fetch("http://localhost:3000/api/v1/login", {
-        // credentials: "include",
+        credentials: "include",
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json'  
@@ -35,13 +41,25 @@ export const login = credentials => {
 }
 
 
+export const logout = () => {
+    console.log('loggedOut!!!')
+    return dispatch => {
+        dispatch(clearCurrentUser)
+        fetch("http://localhost:3000/api/v1/logout", {
+            credentials: 'include',
+            method: 'DELETE',  
+        }) 
+    }
+}
+
+
 export const getCurrentUser = () => {
     console.log('DISPATCHING GET CURRENT USER');
     return dispatch => {
         // debugger 
         const token = localStorage.token
         return fetch("http://localhost:3000/api/v1/get_current_user", {
-        // credentials: "include",
+        credentials: "include",
         method: 'GET', 
         headers: {
             "Authorization": token

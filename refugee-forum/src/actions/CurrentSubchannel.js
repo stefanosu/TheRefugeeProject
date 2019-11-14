@@ -12,18 +12,17 @@ export const createUserChannel = channel => {
 // Subchannel be in the same action file??? maybe 2 actions per file?  
 
 
-
 //async action creators CRUD ACTIONS: 
 //create action to make post request to backend to persist subchannel to database.
-    export const makeChannel = () => {
+    export const makeChannel = (updateChannelData) => {
         console.log('new subchannel created')
         return dispatch => {
             return fetch('http://localhost:3000/api/v1/makeChannel',{
                 method: 'POST', 
                 headers: {
-                    'CONTENT-TYPE': 'application/json'
+                    'Content-Type': 'application/json'
                 }, 
-                body: JSON.stringify(name, user_id)
+                body: JSON.stringify(updateChannelData)
             })
             .then(resp => resp.json())
             .then(channel => {

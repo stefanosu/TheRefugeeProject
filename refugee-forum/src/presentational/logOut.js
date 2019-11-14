@@ -1,14 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import {logout} from '../actions/CurrentUser.js'
 
 
-class LogOut extends React.Component {
-    
-    render() { 
-        return (  
-            <div>
-            
-            </div> );
+const LogOut = ({logout}) => {
+
+
+return ( 
+    <form onSubmit={logout}> 
+        <input type='submit' value='Log Out'/>
+        </form>
+        );
     }
-}
+    
+    
 
-export default LogOut;
+
+export default connect(null, {logout} ) (LogOut)
