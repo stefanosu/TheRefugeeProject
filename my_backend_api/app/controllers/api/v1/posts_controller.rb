@@ -13,16 +13,17 @@ class Api::V1::PostsController < ApplicationController
   end
 
   # POST /posts
-  def create
-    @post = Post.new(post_params)
-
-    if @post.save
-      render json: @post, status: :created, location: @post
-    else
-      render json: @post.errors, status: :unprocessable_entity
+    def create 
+      @posts = Post.create(posts_params)
+      if @posts.valid? 
+        render json: @posts
+      else 
+        render json: {errors: @posts.errors.full_messages}
+      end
     end
-  end
+    
 
+  
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)

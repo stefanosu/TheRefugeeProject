@@ -36,4 +36,12 @@ def get_current_user
         }
     end
 end
+
+def destroy  
+    session.clear 
+    render json: {
+        notice: 'You have logged out successfully!'
+    }
+end
+
 end
