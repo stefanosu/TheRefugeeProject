@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
 
   # CRUD REQUESTS FOR USERS SUBCHANNELS#
-  get  'api/v1/getCurrentChannel', to: 'api/v1/subchannels#show'
+  get  'api/v1/getCurrentChannel', to: 'api/v1/subchannels#index'
   post 'api/v1/makeChannel', to: 'api/v1/subchannels#create'
   patch 'api/v1/udpateChannel', to: 'api/v1/subchannels#update'
   delete 'api/v1/destroyChannel', to: 'api/v1/subchannels#destroy'
@@ -27,8 +27,7 @@ Rails.application.routes.draw do
   delete 'api/v1/deleteComments', to: 'api/v1/posts#delete'
 
 
-
-
+  
   namespace :api do 
     namespace :v1 do 
       resources :users
