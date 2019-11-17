@@ -8,6 +8,12 @@ export const createUserChannel = channel => {
 }
 
 
+export const getAllChannels = channel => {
+    return {
+        type: 'GET_ALL_CHANNELS', 
+        channel 
+    }
+}
 ///Should all the CRUD actions pertaining to
 // Subchannel be in the same action file??? maybe 2 actions per file?  
 
@@ -48,11 +54,12 @@ export const createUserChannel = channel => {
                 }
             })
             .then(resp => resp.json())
+            // .then(console.log)
             .then(channel => {
                 if(channel.error){
                     alert(channel.error)
                 }else {
-                    dispatch(createUserChannel(channel))
+                    dispatch({type: 'GET_ALL_CHANNELS', channels: channel})
                 }
             })
             .catch(console.log)

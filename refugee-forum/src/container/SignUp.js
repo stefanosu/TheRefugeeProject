@@ -29,7 +29,6 @@ class SignUp extends React.Component {
                 onChange={this.handleChange}
             /><br/>
             <input onSubmit={this.handleSubmit} type='submit' />
-
 </React.Fragment> 
             );
     }
