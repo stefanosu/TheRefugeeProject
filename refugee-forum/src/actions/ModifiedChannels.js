@@ -35,26 +35,26 @@ export const updateChannel = channelID => {
 
 
 ///sync action creator to DeleteChannel 
-    export const deleteUserChannel = ID => {
-        return {
-            type: 'DELETE_USER_CHANNEL',
-            payload: ID 
-        }
-    }
+//     export const deleteUserChannel = ID => {
+//         return {
+//             type: 'DELETE_USER_CHANNEL',
+//             payload: ID 
+//         }
+//     }
 
 
 
-///async action creator DeleteChannel 
-    export const destroyChannel = ID => {
-        return dispatch => {
-            ///Need users id to delete specific users channel 
-            return fetch(`http://localhost:3000/api/v1/destroyChannel#{user.id}`,{
-                method: 'DELETE', 
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            dispatch(deleteUserChannel(ID))
-        }
-    }
+// ///async action creator DeleteChannel 
+//     export const destroyChannel = ID => {
+//         return dispatch => {
+//             ///Need users id to delete specific users channel 
+//             return fetch(`http://localhost:3000/api/v1/destroyChannel#{user.id}`,{
+//                 method: 'DELETE', 
+//                 headers: {
+//                     'Content-Type': 'application/json'
+//                 }
+//             })
+//             dispatch(deleteUserChannel(ID))
+//         }
+//     }
 
