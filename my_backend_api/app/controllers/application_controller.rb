@@ -2,40 +2,40 @@ class ApplicationController < ActionController::API
     include ::ActionController::Cookies
 
 
-    def encode_token(payload)
-        # JWT.encode payload, "secret", 'HS256'
-        JWT.encode(payload, Rails.application.credentials.secret)
+    def current_user 
+        User.find_by(id:session[:user_id])
     end
 
 
-    def user_payload(user)
-        { user_id: user.id}
+    def logged_in?
+        !!this_current_user
     end
 
-    def secret
-        Rails.application.credentials.my_app_secret
-    end
+    # def encode_token(payload)
+    #     # JWT.encode payload, "secret", 'HS256'
+    #     JWT.encode(payload, Rails.application.credentials.secret)
+    # end
 
-    def token
-        request.headers["Authorization"]
-    end
 
-    def decoded_token
-        # JWT.decode token, secret, true, { algorithm: 'HS256' }
-        JWT.decode(token, Rails.application.credentials.secret, true, algorithm: 'HS256')
+    # def user_payload(user)
+    #     { user_id: user.id}
+    # end
 
-    end
-    
-    def this_current_user
-        User.find(decoded_token[0]["user_id"])
-    end
-    
-    # def auth_header
-    #     # { Authorization: 'Bearer <token>' }
-    #     request.headers['Authorization']
-    #   end
-    
-    #   def decoded_token
+    # def secret
+    #     Rails.application.credentials.my_app_secret
+    # end
+
+    # def token
+    #     request.headers["Authorization"]
+    # end
+
+    # def decoded_token
+    #     # JWT.decode token, secret, true, { algorithm: 'HS256' }
+    #     JWT.decode(token, Rails.application.credentials.secret, true, algorithm: 'HS256')
+    # end
+
+
+    # def decoded_token
     #     # byebug
     #     if auth_header
     #       token = auth_header#.split(' ')[1]
@@ -48,29 +48,22 @@ class ApplicationController < ActionController::API
     #     end
     #   end
     
-    #   def current_user
-    #     if decoded_token
-    #       user_id = decoded_token[0]['user_id']
-    #       @user = User.find_by(id: user_id)
+    # def this_current_user
+    #     # user_id = decoded_token[0]['user_id']
+    #     User.find(decoded_token[0]["user_id"])
     #     end
+    # end
+    
+    # def auth_header
+    #     # { Authorization: 'Bearer <token>' }
+    #     request.headers['Authorization']
     #   end
     
-    #   def logged_in?
-    #     !!current_user
-    #   end
-    
+
     #   def authorized
     #     render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
     #   end
     # end
-    
-    
-
-    # # def current_user
-    # #     if decoded_token
-    # #       user_id = decoded_token[0]['user_id']
-    # #       @user = User.find_by(id: user_id)
-    # #     end
 
     # #   debugger
     #     # Stefanos: there is no secret
@@ -80,7 +73,4 @@ class ApplicationController < ActionController::API
     
 
 
-    def logged_in?
-        !!this_current_user
-    end
 end

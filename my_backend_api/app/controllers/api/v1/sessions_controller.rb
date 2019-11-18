@@ -1,29 +1,28 @@
 class Api::V1::SessionsController < ApplicationController
 
+def login 
+    @user = User.find_by(username: params[:session][:username])
+    # byebug
+        if @user && @user.authenticate(params[:session][:password]) 
+            session[:user_id] = @user.id
+            render json: @user 
+        else 
+            render json: {
+                error: 'Invalid credentials'
+            }
+    end
+end
+
 # def login
 #     user = User.find_by(username: params[:username])
-#     is_authenticated = user.authenticate(params[:password]) 
-
-#     if is_authenticated 
-#         # binding.pry
-#         render json: { token: encode_token(user_payload(user)), user: user }
-#     else  
+#     # byebug
+#     is_authenticated = user.authenticate(params[:password])
+#         if is_authenticated
+#         render json: { token: encode_token(user_payload(user)) }
+#         else
 #         render json: { error: "Wrong username and/or password. Sorry!" }
-#     end  
+#         end
 # end
-
-
-def login
-    user = User.find_by(username: params[:username])
-    # byebug
-    is_authenticated = user.authenticate(params[:password])
-        if is_authenticated
-        render json: { token: encode_token(user_payload(user)) }
-
-        else
-        render json: { error: "Wrong username and/or password. Sorry!" }
-        end
-end
 
 
 def get_current_user
@@ -41,7 +40,7 @@ def destroy
     session.clear 
     render json: {
         notice: 'You have logged out successfully!'
-    }
+    }, status: :ok
 end
 
 end

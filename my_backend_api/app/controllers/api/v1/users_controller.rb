@@ -15,11 +15,17 @@ class Api::V1::UsersController < ApplicationController
   # POST /users
   def create
     @user = User.create(user_params)
+    # byebug
     if @user.valid? 
-      render json: { token: encode_token(user_payload(@user)) }
+        render json: @user 
     else 
-      render json: {errors: @user.errors.full_messages}
+      render json: @user.errors.full_messages 
     end
+    # if @user.valid? 
+    #   render json: { token: encode_token(user_payload(@user)) }
+    # else 
+    #   render json: {errors: @user.errors.full_messages}
+    # end
   end
 
   # PATCH/PUT /users/1

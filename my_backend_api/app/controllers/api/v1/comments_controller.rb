@@ -4,7 +4,6 @@ class Api::V1::CommentsController < ApplicationController
   # GET /comments
   def index
     @comments = Comment.all
-
     render json: @comments
   end
 
@@ -16,7 +15,6 @@ class Api::V1::CommentsController < ApplicationController
   # POST /comments
   def create
     @comment = Comment.new(comment_params)
-
     if @comment.save
       render json: @comment, status: :created, location: @comment
     else

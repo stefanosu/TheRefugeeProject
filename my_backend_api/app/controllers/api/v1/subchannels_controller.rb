@@ -15,6 +15,7 @@ class Api::V1::SubchannelsController < ApplicationController
   # POST /subchannels
   def create 
     @subchannel = Subchannel.create(subchannel_params)
+    # byebug
     if @subchannel.valid? 
       render json: @subchannel
     else 
@@ -45,6 +46,7 @@ class Api::V1::SubchannelsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def subchannel_params
+      # byebug
       params.require(:subchannel).permit(:name, :user_id)
     end
 end
