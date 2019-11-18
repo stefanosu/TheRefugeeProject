@@ -66,7 +66,4 @@ export const getAllChannels = channel => {
         }
     }
 
-//make patch request to update/edit subchannel to modify subchannel from db. 
-//make delete request to remove subchannel from db.
-        
 
