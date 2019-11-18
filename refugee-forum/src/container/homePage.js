@@ -1,16 +1,17 @@
 import React from 'react'; 
 import SideBar from '../presentational/SideBar'
 import NavBar from './NavBar.js';
-// import LogIn from '../presentational/LogIn'
-// import LogOut from '../presentational/LogOut';
 import { connect } from 'react-redux'
 import { getCurrentChannel } from '../actions/CurrentSubchannel.js'
+// import {makeChannel} from '../actions/CurrentSubchannel.js'
+// import {getCurrentUser} from '../actions/CurrentUser'
+
 
 
 class HomePage extends React.Component {
     componentDidMount() {
-        // console.log(this.props.getCurrentUser);
-            this.props.getCurrentChannel()
+        // this.props.getCurrentUser()
+        this.props.getCurrentChannel() 
             
     }
 
@@ -18,8 +19,8 @@ class HomePage extends React.Component {
         console.log(this.props)
         return ( 
             <div>
-            <NavBar/>
-            <SideBar/>
+                <NavBar/>
+                <SideBar/>
             </div> 
             );
     }
@@ -27,12 +28,14 @@ class HomePage extends React.Component {
 
 
 const mapDispatchToProps = {
-    getCurrentChannel: getCurrentChannel
+    getCurrentChannel
+    // getCurrentUser
 }
 
 
 const mapStateToProps = state => ({
-    channels: state.channels
+    channels: state.channels, 
+    // users: state.users 
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
