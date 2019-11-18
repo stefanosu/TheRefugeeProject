@@ -1,3 +1,5 @@
+import {resetLoginForm} from './LoginForm.js'
+
 
 ///sync action creators
 export const setCurrentUser = user => {
@@ -34,6 +36,7 @@ export const login = credentials => {
             } else {
                 localStorage.token = user.token
                 dispatch(setCurrentUser(user))
+                dispatch(resetLoginForm())
             }
         })
         .catch(console.log)
@@ -43,11 +46,11 @@ export const login = credentials => {
 
 export const logout = () => {
     console.log('loggedOut!!!')
-    return dispatch => {
-        dispatch(clearCurrentUser)
+    return dispatch => { 
+        dispatch(clearCurrentUser())
         fetch("http://localhost:3000/api/v1/logout", {
             credentials: 'include',
-            method: 'DELETE',  
+            method: 'DELETE'
         }) 
     }
 }
