@@ -17,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       session[:user_id] = @user.id
-      render json: UserSerializer.new(@user), status: :created
+      render json: @user, status: :created
     else
       resp = {
         error: @user.errors.full_messages.to_sentence
