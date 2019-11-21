@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import {updateUserChannel} from '../actions/UserChannel.js'
-import {makeChannel} from '../actions/CurrentSubChannel.js'
+import {makeChannel} from '../actions/CurrentSubchannel.js'
 
 
 const SubChannel = ({channelData, updateUserChannel, makeChannel}) => { 

@@ -3,12 +3,10 @@ const initialState = {channels: []}
 export default (state = initialState, action) => {
     switch(action.type){
         case  'GET_ALL_CHANNELS': 
-            return {...state, channels: action.channels}
-                
-        // case 'GET_ALL_CHANNELS': 
-        //     stateChannel = [...state, action.payload]
-        //     return stateChannel
-                
+            return action.channels
+
+            // return {...state, channels: action.channels}
+
         // case 'UPDATE_USER_CHANNEL':
         //         stateChannel = state.map((channel) => {
         //             const {name, id} = action.payload

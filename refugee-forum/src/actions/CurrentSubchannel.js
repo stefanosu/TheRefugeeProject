@@ -1,17 +1,17 @@
 
 ///sync action creators 
-export const createUserChannel = channel => {
+export const createUserChannel = channels => {
     return {
         type: 'CREATE_USER_CHANNEL', 
-        channel 
+        channels 
     }
 }
 
-
-export const getAllChannels = channel => {
+///sync action creators 
+export const getAllChannels = channels => {
     return {
-        type: 'GET_ALL_CHANNELS', 
-        channel 
+        type: 'GET_ALL_channelsS', 
+        channels 
     }
 }
 ///Should all the CRUD actions pertaining to
@@ -31,11 +31,11 @@ export const getAllChannels = channel => {
                 body: JSON.stringify(updateChannelData)
             })
             .then(resp => resp.json())
-            .then(channel => {
-                if(channel.error) {
-                    alert(channel.error)
+            .then(channels => {
+                if(channels.error) {
+                    alert(channels.error)
                 } else {
-                    dispatch(createUserChannel(channel))
+                    dispatch(createUserChannel(channels.data))
                 }
             })
             .catch(console.log)
@@ -48,6 +48,7 @@ export const getAllChannels = channel => {
         console.log('Dispatching current channel')
         return dispatch => {
             return fetch('http://localhost:3000/api/v1/getCurrentChannel',{
+                credentials: 'include',
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -55,11 +56,12 @@ export const getAllChannels = channel => {
             })
             .then(resp => resp.json())
             // .then(console.log)
-            .then(channel => {
-                if(channel.error){
-                    alert(channel.error)
+            .then(channels => {
+                if(channels.error){
+                    alert(channels.error)
                 }else {
-                    dispatch({type: 'GET_ALL_CHANNELS', channels: channel})
+                    console.log(channels.data)
+                    dispatch(getAllChannels(channels.data))
                 }
             })
             .catch(console.log)
