@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
 
 
     def logged_in?
-        !!this_current_user
+        !!current_user
     end
 
     # def encode_token(payload)

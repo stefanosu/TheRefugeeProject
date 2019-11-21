@@ -28,7 +28,7 @@ end
 def get_current_user
     # byebug
     if logged_in?
-        render json: this_current_user
+        render json: current_user
     else 
         render json: {
             error: 'No one logged in'
