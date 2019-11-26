@@ -14,7 +14,8 @@ import {connect} from 'react-redux'
     return (
         <div className='NavBar'>
             <Route path= '/SignUp' component={SignUp}/>
-                {currentUser ? <p>Welcome, {currentUser.username}</p> : '' }
+                {currentUser ? <p>Welcome, {currentUser.username}
+                {currentUser.subchannel}        </p> : '' }
                 { currentUser ? <LogOut/> : <LogIn/>}
                 <SearchBar/>
                 <UserSettings/>
