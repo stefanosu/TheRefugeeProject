@@ -4,12 +4,14 @@ class Api::V1::UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-    render json: @users
+    render json: UserSerializer.new(@users).serialized_json
   end
 
-  # GET /users/1
+  # GET /users/1 
   def show
-    render json: @user 
+    # user_json = UserSerializer.new(@user).serialized_json
+    render json: @user
+    
   end
 
   # POST /users
@@ -37,7 +39,7 @@ class Api::V1::UsersController < ApplicationController
     # else 
     #   render json: {errors: @user.errors.full_messages}
     # end
-  end
+  
 
   # PATCH/PUT /users/1
   def update

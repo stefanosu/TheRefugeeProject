@@ -4,7 +4,7 @@ class Api::V1::CommentsController < ApplicationController
   # GET /comments
   def index
     @comments = Comment.all
-    render json: @comments
+    render json: CommentSerializer.new(@comments).serialized_json
   end
 
   # GET /comments/1

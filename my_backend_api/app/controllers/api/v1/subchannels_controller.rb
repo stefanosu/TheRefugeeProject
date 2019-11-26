@@ -4,7 +4,7 @@ class Api::V1::SubchannelsController < ApplicationController
   # GET /subchannels
   def index
     @subchannels = Subchannel.all
-    render json: @subchannels 
+    render json: SubchannelSerializer.new(@subchannels).serialized_json
   end
 
   # GET /subchannels/1
