@@ -27,14 +27,11 @@ end
 
 def get_current_user
     # byebug
-    if logged_in?
-        render json: UserSerializer.new(current_user).serialized_json
-        # current_user
-    else 
-        render json: {
-            error: 'No one logged in'
-        }
-    end
+  if !logged_in? 
+    return render json: { error: 'No one logged in' }
+  end
+
+  render json: UserSerializer.new(current_user).serialized_json
 end
 
 def destroy  
