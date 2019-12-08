@@ -7,20 +7,19 @@ import UserSettings from '../presentational/UserSettings';
 import MyProfile from '../presentational/MyProfile'
 import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
-
     
 
-    const NavBar = ({currentUser}) => {
+
+const NavBar = ({currentUser}) => {
     return (
         <div className='NavBar'>
-            <Route path= '/SignUp' component={SignUp}/>
-                {currentUser ? <p>Welcome, {currentUser.username}
-                {currentUser.subchannel}        </p> : '' }
-                { currentUser ? <LogOut/> : <LogIn/>}
-                <SearchBar/>
-                <UserSettings/>
-                <MyProfile/>
-            <Route/>
+        <Route path= '/SignUp' component={SignUp}/>
+        { currentUser ? `Welcome, ${currentUser.data.attributes.username}` : ''} 
+        { currentUser ? <LogOut/> : <LogIn/> }
+        <SearchBar/>
+        <UserSettings/>
+        <MyProfile/>
+        <Route/>
         </div>
     )
 }
@@ -33,6 +32,5 @@ import {connect} from 'react-redux'
 
     
 
-
-export default connect( mapStateToProps) (NavBar)
+export default connect(mapStateToProps) (NavBar)
         
