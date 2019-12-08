@@ -4,8 +4,8 @@ import React from 'react';
 
 ///pass down as props the users information 
 
-export const MyProfile = (props) => {
-    console.log(props);
+export const MyProfile = () => {
+    // console.log(props);
     
     return (
         <div>

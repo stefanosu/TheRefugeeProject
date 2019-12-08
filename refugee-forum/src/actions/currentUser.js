@@ -35,7 +35,7 @@ export const login = credentials => {
             if(user.error) {
                 alert(user.error)
             } else {
-                localStorage.token = user.token
+                // localStorage.token = user.token
                 dispatch(setCurrentUser(user))
                 dispatch(resetLoginForm())
                 dispatch(getAllChannels([]))
@@ -72,14 +72,14 @@ export const getCurrentUser = () => {
         })
         .then(resp => resp.json())
         // .then(console.log => {
-        .then(user =>{
+        .then(response =>{
             // debugger
-            if(user.error) {
-                alert(user.error)
+            if(response.error) {
+                alert(response.error)
             } else {
                 // localStorage.setItem("token",user.credentials)
-                localStorage.token = user.token
-                dispatch(setCurrentUser(user))
+                // localStorage.token = user.token
+                dispatch(setCurrentUser(response.data))
                 dispatch(getAllChannels([]))
             }
         })

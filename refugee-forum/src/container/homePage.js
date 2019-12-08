@@ -3,6 +3,7 @@ import SideBar from '../presentational/SideBar'
 import NavBar from './NavBar.js';
 import { connect } from 'react-redux'
 import {getCurrentUser} from '../actions/CurrentUser.js'
+import SubChannel from './SubChannel';
 // import { getCurrentChannel } from '../actions/CurrentSubchannel.js'
 // import {makeChannel} from '../actions/CurrentSubchannel.js'
 

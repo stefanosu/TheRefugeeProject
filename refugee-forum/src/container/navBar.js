@@ -1,25 +1,24 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-import SignUp from './SignUp';
 import LogIn from '../presentational/LogIn';
 import LogOut from '../presentational/LogOut';
 import UserSettings from '../presentational/UserSettings';
 import MyProfile from '../presentational/MyProfile'
-import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
     
 
 
 const NavBar = ({currentUser}) => {
+    // if(currentUser != null){
+    // console.log(currentUser.data.attributes.username)
+    // }
     return (
-        <div className='NavBar'>
-        <Route path= '/SignUp' component={SignUp}/>
+        <div className='Navbar'>
         { currentUser ? `Welcome, ${currentUser.data.attributes.username}` : ''} 
         { currentUser ? <LogOut/> : <LogIn/> }
         <SearchBar/>
         <UserSettings/>
         <MyProfile/>
-        <Route/>
         </div>
     )
 }
