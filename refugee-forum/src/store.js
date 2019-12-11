@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import usersReducer from './reducers/Users.js'
 import currentUser from './reducers/CurrentUser.js'
 import loginForm from './reducers/LoginForm.js'
-import userChannel from './reducers/UserChannel.js'
+import subChannel from './reducers/SubChannel.js'
 
 
 
@@ -11,7 +11,7 @@ const reducer = combineReducers({
     users: usersReducer,
     currentUser,
     loginForm, 
-    userChannel 
+    subChannel 
 }) 
 
 

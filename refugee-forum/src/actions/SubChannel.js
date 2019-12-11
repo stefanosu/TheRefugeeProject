@@ -10,7 +10,7 @@ export const createUserChannel = channels => {
 ///sync action creators 
 export const getAllChannels = channels => {
     return {
-        type: 'GET_ALL_channelsS', 
+        type: 'GET_ALL_CHANNELS', 
         channels 
     }
 }
@@ -57,7 +57,7 @@ export const getAllChannels = channels => {
             .then(resp => resp.json())
             // .then(console.log)
             .then(channels => {
-                if(channels.error){
+                if(channels.error){ 
                     alert(channels.error)
                 }else {
                     console.log(channels.data)

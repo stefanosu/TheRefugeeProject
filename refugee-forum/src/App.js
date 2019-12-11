@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
+import './App.css'
 // import { connect } from 'react-redux'
-// import { getCurrentUser} from './actions/CurrentUser.js'
 import HomePage from './container/HomePage.js';
+
 
 class App extends React.Component {
 

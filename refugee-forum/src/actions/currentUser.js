@@ -1,5 +1,5 @@
 import {resetLoginForm} from './LoginForm.js'
-import { getAllChannels } from './CurrentSubchannel.js'
+import { getAllChannels } from './SubChannel.js'
 
 
 ///sync action creators
@@ -36,9 +36,10 @@ export const login = credentials => {
                 alert(user.error)
             } else {
                 // localStorage.token = user.token
+                // console.log(user.data)
                 dispatch(setCurrentUser(user))
                 dispatch(resetLoginForm())
-                dispatch(getAllChannels([]))
+                dispatch(getAllChannels(user.data)) 
             }
         })
         .catch(console.log)
@@ -80,7 +81,7 @@ export const getCurrentUser = () => {
                 // localStorage.setItem("token",user.credentials)
                 // localStorage.token = user.token
                 dispatch(setCurrentUser(response.data))
-                dispatch(getAllChannels([]))
+                dispatch(getAllChannels(response.data))
             }
         })
         .catch(console.log)
