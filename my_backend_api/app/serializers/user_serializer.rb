@@ -11,7 +11,7 @@ class UserSerializer < ActiveModel::Serializer
   #   {
   #     name: user.subchannels.name 
   # # #     # title: user.posts.title, 
-  # # #     # url: user.posts.url,  
+  # # #     # url: user.posts.url,
   #   }
   # end
 end
