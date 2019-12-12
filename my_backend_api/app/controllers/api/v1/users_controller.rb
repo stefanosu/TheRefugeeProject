@@ -16,15 +16,15 @@ class Api::V1::UsersController < ApplicationController
 
   # POST /users
   def create
+    # byebug 
     @user = User.create(user_params)
     if @user.valid?
       session[:user_id] = @user.id
-      render json: @user, status: :created
+      render json: UserSerializer.new(@user).serialized_json , status: :created
     else
-      resp = {
-        error: @user.errors.full_messages.to_sentence
-      }
-      render json: resp, status: :unprocessable_entity
+      render json: {
+        error: @user.errors.full_messages.to_sentence}
+
     end
   end
     # @user = User.create(user_params)
