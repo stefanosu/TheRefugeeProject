@@ -6,16 +6,16 @@ import SubChannelCards from './SubChannelCards'
 
 const SubChannel = ({currentUser}) => {
 if(currentUser != null){
-    // console.log(currentUser.data.attributes.subchannels)
+    console.log(currentUser.data.attributes.subchannels)
         
-var subChannelCards = currentUser.data.attributes.subchannels.map(channel => <SubChannelCards channel={channel}key={channel.id} />)
+var subChannelCards = currentUser.data.attributes.subchannels.map(channel => <SubChannelCards channel={channel} key={channel.id} />)
 }
     return (
         <div className="wrapper">
             <h1>SubChannels</h1>
             {subChannelCards}
         </div>
-    )
+    ) 
 }
 
 // const SubChannel = ({channelData, updateUserChannel, makeChannel}) => { 
@@ -61,9 +61,9 @@ var subChannelCards = currentUser.data.attributes.subchannels.map(channel => <Su
 //     const mapStateToProps = state => {
 //         return { 
 //             channelData: state.channelForm,
-
 //         }
 // //     }
+
     const mapStateToProps = ({currentUser}) => {
         return {
             currentUser

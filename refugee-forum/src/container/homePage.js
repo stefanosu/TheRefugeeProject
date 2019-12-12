@@ -3,27 +3,38 @@ import SideBar from '../presentational/SideBar'
 import NavBar from './NavBar.js';
 import { connect } from 'react-redux'
 import {getCurrentUser} from '../actions/CurrentUser.js'
-import SubChannel from './SubChannel.js'
+import LogIn from '../presentational/LogIn';
+import { Route } from 'react-router-dom'
+import SubChannel from './SubChannel';
+import SignUp from './SignUp'
 
 
 class HomePage extends React.Component {
-    componentDidMount() {
-        this.props.getCurrentUser()
-        // this.props.getCurrentChannel() 
-            
-    }
+  
+  componentDidMount() {
+    // debugger
+    this.props.getCurrentUser()
+    // this.props.getCurrentChannel() 
+  }
+      
+    // allTheChannels = ({currentUser}) => {
+    //   currentUser.data.attributes.subchannels.map(channel => <li channel={channel.name} key={channel.id} />)
+    // }  
+          
 
     render() { 
-        console.log(this.props)
+        // console.log(this.props)
         return ( 
-            <div>
-                <NavBar/>
-                <SubChannel/>
+            <React.Fragment>
+              <NavBar/>
+                  <Route exact path='/login' component={LogIn}/>
+                  <Route exact path='/signup' component={SignUp}/>
+                  <Route exact path='/subchannel' component={SubChannel}/>
                 <SideBar/>
-            </div> 
+                </React.Fragment> 
             );
     }
-}
+  }
 
 
 const mapDispatchToProps = {
@@ -32,9 +43,9 @@ const mapDispatchToProps = {
 }
 
 
-const mapStateToProps = state => ({
-    // channels: state.channels, 
-    users: state.users 
-})
+// const mapStateToProps = currentUser => ({
+//     // users: state.users,
+//     currentUser 
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(null, mapDispatchToProps)(HomePage);

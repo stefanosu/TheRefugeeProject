@@ -1,43 +1,40 @@
-import React from 'react'
-// import {connect} from 'react-redux';
-// import {userPostFetch} from '../redux/actions';
+import React from 'react';
+import { connect } from 'react-redux'
+import {updateSignupForm} from '../actions/signupForm.js'
+import {signup} from '../actions/CurrentUser.js'
 
-class SignUp extends React.Component {
+
+const SignUp = ({signupFormData, updateSignupForm, signup}) => {
+
+    const handleInputChange = event => {
+        const {name, value} = event.target
+        const updatedFormInfo = {
+            ...signupFormData, 
+            [name]: value
+        }
+        updateSignupForm(updatedFormInfo)
+    } 
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        signup(signupFormData)
+    }
+
+return ( 
+    <form onSubmit={handleSubmit}> 
+    <input placeholder='username'  type='text' name='username' value={signupFormData.username} onChange={handleInputChange}/>
+        <input placeholder= 'password' type='text' name='password' value={signupFormData.password} onChange={handleInputChange}/>
+        <input type='submit' value='Sign Up'/>
+        </form>
+        );
+    }
     
-    handleSubmit = e => {
-        e.preventDefault()
+    const mapStateToProps = state => {
+        return {
+            signupFormData: state.signupForm
+        }
     }
+    
 
-    render() { 
-        return ( 
-<React.Fragment>
-    <h1>Sign Up For An Account</h1>
-        <label>Username</label>
-                <input
-                name='username'
-                placeholder='Username'
-                value= ''
-                onChange={this.handleChange}
-                /><br/>
 
-        <label>Password</label>
-            <input
-                type='password'
-                name='password'
-                placeholder='Password'
-                value= ''
-                onChange={this.handleChange}
-            /><br/>
-            <input onSubmit={this.handleSubmit} type='submit' />
-</React.Fragment> 
-            );
-    }
-}
-
-export default SignUp ;
-
-// const mapDispatchToProps = dispatch => ({
-//     userPostFetch: userInfo => dispatch(userPostFetch(userInfo))
-//     })
-
-// export default connect(null, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, {updateSignupForm, signup} ) (SignUp)
