@@ -15,9 +15,6 @@ const NavBar = ({currentUser}) => {
     return (
         <div className='Navbar'>
         { currentUser ? `Welcome, ${currentUser.data.attributes.username}` : ''} 
-        <button> Log In </button>
-                OR 
-        <button>SignUp</button>
         <SearchBar/>
         <UserSettings/>
         <MyProfile/>
