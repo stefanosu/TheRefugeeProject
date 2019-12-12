@@ -4,7 +4,7 @@ import {updateLogInForm} from '../actions/LoginForm.js'
 import {login} from '../actions/CurrentUser.js'
 
 
-const LogIn = ({loginFormData, updateLogInForm, login}) => {
+const LogIn = ({loginFormData, updateLogInForm, login, history}) => {
 
     const handleInputChange = event => {
         const {name, value} = event.target
@@ -17,7 +17,7 @@ const LogIn = ({loginFormData, updateLogInForm, login}) => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        login(loginFormData)
+        login(loginFormData, history)
     }
 
 return ( 

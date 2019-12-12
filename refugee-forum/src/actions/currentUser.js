@@ -19,7 +19,7 @@ export const clearCurrentUser = () => {
 
 
 ///async action creators 
-export const login = credentials => {
+export const login = (credentials, history) => {
     console.log('credentials are here', credentials);
     return dispatch => {
         // debugger
@@ -40,7 +40,8 @@ export const login = credentials => {
                 // console.log(user.data)
                 dispatch(setCurrentUser(user))
                 dispatch(resetSignupForm())
-                dispatch(getAllChannels(user.data)) 
+                dispatch(getAllChannels(user.data))
+                history.push('/')
             }
         })
         .catch(console.log)
