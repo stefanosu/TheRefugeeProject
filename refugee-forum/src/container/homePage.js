@@ -10,14 +10,11 @@ import React from 'react';
 import {Link} from 'react-router-dom' 
 
 
-const HomePage = ({}) => {
+const HomePage = () => (
     
-  return(
     <div> 
-      <h4>Welcome, please   
-        <Link to='/signup'>Sign Up </Link>
-      or  
-        <Link to='/login'>Log In </Link> </h4>
+      <span>   
+        <Link to='/signup'>Sign Up </Link>OR<Link to='/login'>Log In </Link> </span>
     </div>
     )
   //   render() { 
@@ -44,6 +41,6 @@ const HomePage = ({}) => {
 // const mapStateToProps = currentUser => ({
 //     // users: state.users,
 //     currentUser 
-}
+
 
 export default (HomePage);
