@@ -48,7 +48,7 @@ export const login = (credentials, history) => {
     }
 }
 
-export const signup = credentials => {
+export const signup = (credentials, history) => {
     console.log('credentials are here', credentials);
     return dispatch => {
         // debugger
@@ -69,7 +69,8 @@ export const signup = credentials => {
                 // console.log(user.data)
                 dispatch(setCurrentUser(user))
                 dispatch(resetLoginForm())
-                dispatch(getAllChannels(user.data)) 
+                dispatch(getAllChannels(user.data))
+                history.push('/') 
             }
         })
         .catch(console.log)

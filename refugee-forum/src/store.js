@@ -5,14 +5,15 @@ import currentUser from './reducers/CurrentUser.js'
 import loginForm from './reducers/LoginForm.js'
 import subChannel from './reducers/SubChannel.js'
 import signupForm from './reducers/signupForm.js'
-
+import newSubChannelForm from './reducers/newSubChannelForm.js'
 
 const reducer = combineReducers({
     users: usersReducer,
     currentUser,
     loginForm, 
     subChannel,
-    signupForm 
+    signupForm, 
+    newSubChannelForm
 }) 
 
 

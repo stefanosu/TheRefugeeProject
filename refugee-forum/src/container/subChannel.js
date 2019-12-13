@@ -6,7 +6,7 @@ import SubChannelCards from './SubChannelCards'
 
 const SubChannel = ({currentUser}) => {
 if(currentUser != null){
-    console.log(currentUser.data.attributes.subchannels)
+    // console.log(currentUser.data.attributes.subchannels)
         
 var subChannelCards = currentUser.data.attributes.subchannels.map(channel => <SubChannelCards channel={channel} key={channel.id} />)
 }
