@@ -23,11 +23,14 @@ export const login = (credentials, history) => {
     console.log('credentials are here', credentials);
     return dispatch => {
         // debugger
-        return fetch("http://localhost:3000/api/v1/login", {
+        // const token = localStorage.token 
+        return fetch("http://localhost:3000/api/v1/user_login", {
         credentials: "include",
         method: 'POST', 
         headers: {
-            'Content-Type': 'application/json'  
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+            // Authorization: `Bearer${token}`
             }, 
             body: JSON.stringify(credentials)
         })
@@ -36,8 +39,8 @@ export const login = (credentials, history) => {
             if(user.error) {
                 alert(user.error)
             } else {
-                // localStorage.token = user.token
                 // console.log(user.data)
+                console.log(localStorage.setItem("token", user.jwt))
                 dispatch(setCurrentUser(user))
                 dispatch(resetSignupForm())
                 dispatch(getAllChannels(user.data))
@@ -48,15 +51,18 @@ export const login = (credentials, history) => {
     }
 }
 
+//create new user
 export const signup = (credentials, history) => {
     console.log('credentials are here', credentials);
     return dispatch => {
         // debugger
+        // const token = localStorage.token 
         return fetch("http://localhost:3000/api/v1/signup", {
         credentials: "include",
         method: 'POST', 
         headers: {
-            'Content-Type': 'application/json'  
+            'Content-Type': 'application/json',
+            'Accept': 'application/json' 
             }, 
             body: JSON.stringify(credentials)
         })
@@ -65,8 +71,8 @@ export const signup = (credentials, history) => {
             if(user.error) {
                 alert(user.error)
             } else {
-                // localStorage.token = user.token
                 // console.log(user.data)
+                localStorage.setItem('token', user.jwt)
                 dispatch(setCurrentUser(user))
                 dispatch(resetLoginForm())
                 dispatch(getAllChannels(user.data))
@@ -94,12 +100,13 @@ export const getCurrentUser = () => {
     console.log('DISPATCHING GET CURRENT USER');
     return dispatch => {
         // debugger 
-        // const token = localStorage.token
-        return fetch("http://localhost:3000/api/v1/get_current_user", {
+        const token = localStorage.token
+        return fetch("http://localhost:3000/api/v1/profile", {
         credentials: "include",    
         method: 'GET', 
         headers: {
-            "Content-type": "application/json"
+            'Content-Type': 'application/json', 
+            Authorization: `Bearer${token}`
             },
         })
         .then(resp => resp.json())
@@ -109,8 +116,7 @@ export const getCurrentUser = () => {
             if(user.error) {
                 alert(user.error)
             } else {
-                // localStorage.setItem("token",user.credentials)
-                // localStorage.token = user.token
+                localStorage.setItem("token", user.jwt)
                 dispatch(setCurrentUser(user))
                 dispatch(getAllChannels(user.data))
             }

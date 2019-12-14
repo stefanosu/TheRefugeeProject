@@ -5,15 +5,15 @@ import SubChannelCards from './SubChannelCards'
 
 
 const SubChannel = ({currentUser}) => {
-if(currentUser != null){
+// if(currentUser != null){
     // console.log(currentUser.data.attributes.subchannels)
         
-var subChannelCards = currentUser.data.attributes.subchannels.map(channel => <SubChannelCards channel={channel} key={channel.id} />)
-}
+// let subChannelCards = currentUser.data.attributes.subchannels.map(channel => <SubChannelCards channel={channel} key={channel.id} />)
+// }
+// {subChannelCards}
     return (
         <div className="wrapper">
             <h1>SubChannels</h1>
-            {subChannelCards}
         </div>
     ) 
 }

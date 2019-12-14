@@ -16,25 +16,25 @@ class App extends React.Component {
     
     componentDidMount() {
       // debugger
-      this.props.getCurrentUser()
+      // this.props.getCurrentUser()
       // this.props.getCurrentChannel() 
     }
     
   
-      render() { 
-        const {loggedIn} = this.props
-          return ( 
-            <React.Fragment>
-              {loggedIn ? <Logout/> : null}
-              <Route exact path='/login' component={LogIn}/>
-              <Route exact path='/' render={()=> loggedIn ? <SubChannel/> : <HomePage/>}/>
-              <Route exact path='/signup' component={SignUp}/>
-              <Route exact path='/subchannel' component={SubChannel}/>
-              <Route exact path='/new/subChannelForm' component={NewSubChannelForm}/>
-            </React.Fragment> 
-              );
-      }
+    render() { 
+      const {loggedIn} = this.props
+      return ( 
+      <React.Fragment>
+        {loggedIn ? <Logout/> : null}
+        <Route exact path='/login' component={LogIn}/>
+        <Route exact path='/' render={()=> loggedIn ? <SubChannel/> : <HomePage/>}/>
+        <Route exact path='/signup' component={SignUp}/>
+        <Route exact path='/subchannel' component={SubChannel}/>
+        <Route exact path='/new/subChannelForm' component={NewSubChannelForm}/>
+      </React.Fragment> 
+        );
     }
+  }
   
   
   const mapDispatchToProps = {
