@@ -1,26 +1,25 @@
 class ApplicationController < ActionController::API
-  before_action :authorized
+  # before_action :authorized
     # include ::ActionController::Cookies
 
-
   def encode_token(payload)
-    JWT.encode(payload, "my_secret")
+    JWT.encode(payload, secret)
     # JWT.encode(payload, Rails.application.credentials.secret)
   end
 
-  def auth_header 
-    request.headers['Authorization']
-  end
-
-  # def secret
-  #     Rails.application.credentials.my_app_secret
+  # def auth_header 
+  #   request.headers['Authorization']
   # end
+
+  def secret
+    'my_secret'
+  end
 
   def decoded_token
     if auth_header
       token = auth_header.split(' ')[1]
       begin
-        JWT.decode(token, 'my_secret', true, algorithm: 'HS256')
+        JWT.decode(token, secret, true, algorithm: 'HS256')
       rescue JWT::DecodeError
         nil
       end
@@ -40,9 +39,9 @@ class ApplicationController < ActionController::API
     !!this_current_user
   end
   
-    def authorized
-      render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
-    end
+    # def authorized
+    #   render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
+    # end
 
     # #   debugger
     #     # Stefanos: there is no secret

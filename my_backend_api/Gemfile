@@ -33,7 +33,6 @@ gem 'rack-cors'
 
 #JSON Web Token used for user authorization and authentication 
 gem 'jwt'
-gem 'devise-jwt', '~> 0.5.9'
 gem 'pry'
 
 group :development, :test do
