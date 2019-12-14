@@ -24,7 +24,7 @@ export const login = (credentials, history) => {
     return dispatch => {
         // debugger
         // const token = localStorage.token 
-        return fetch("http://localhost:3000/api/v1/user_login", {
+        return fetch("http://localhost:3000/api/v1/login", {
         credentials: "include",
         method: 'POST', 
         headers: {
@@ -40,7 +40,7 @@ export const login = (credentials, history) => {
                 alert(user.error)
             } else {
                 // console.log(user.data)
-                console.log(localStorage.setItem("token", user.jwt))
+                localStorage.setItem("token", user.jwt)
                 dispatch(setCurrentUser(user))
                 dispatch(resetSignupForm())
                 dispatch(getAllChannels(user.data))
@@ -101,7 +101,7 @@ export const getCurrentUser = () => {
     return dispatch => {
         // debugger 
         const token = localStorage.token
-        return fetch("http://localhost:3000/api/v1/profile", {
+        return fetch("http://localhost:3000/api/v1/persist", {
         credentials: "include",    
         method: 'GET', 
         headers: {
