@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # CRUD REQUESTS FOR USERS LOGIIN/LOGOUT AUTH AND OAUTH#
-  get  'api/v1/get_current_user', to: 'api/v1/sessions#get_current_user'
-  post 'api/v1/login', to: 'api/v1/sessions#login'
+  get  'api/v1/profile', to: 'api/v1/users#profile'
+  post 'api/v1/user_login', to: 'api/v1/sessions#create' 
   delete 'api/v1/logout', to: 'api/v1/sessions#destroy'
   post 'api/v1/signup', to: 'api/v1/users#create'
   

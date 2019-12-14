@@ -2,7 +2,8 @@ class UserSerializer < ActiveModel::Serializer
   include FastJsonapi::ObjectSerializer
   # set_key_transform :subchannels
 
-  attributes :username, :password_digest, :subchannels
+  attributes :username, :password_digest
+  # , :subchannels
   # belongs_to :subchannels, serializer: SubchannelSerializer
 
   # has_many  :subchannels
