@@ -11,7 +11,6 @@ import Logout from './presentational/LogOut'
 import NewSubChannelForm from './container/NewSubChannelForm';
 
 
-
 class App extends React.Component {
     
     componentDidMount() {
